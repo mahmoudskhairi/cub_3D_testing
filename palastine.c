@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphic.c                                          :+:      :+:    :+:   */
+/*   palastine.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:27:04 by mskhairi          #+#    #+#             */
-/*   Updated: 2024/10/16 21:52:16 by mskhairi         ###   ########.fr       */
+/*   Updated: 2024/10/16 22:01:05 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,7 +220,7 @@ void buttom_white(mlx_image_t* img)
 
 int	main()
 {
-    mlx_t* mlx = mlx_init(Window_W, Window_H, "MLX42", true);
+    mlx_t* mlx = mlx_init(Window_W, Window_H, "MLX_palastine_flag", true);
     if (!mlx) exit(EXIT_FAILURE);
     mlx_image_t* img = mlx_new_image(mlx, Window_W , Window_H);
 	mlx_image_to_window(mlx, img,0 , 0);
