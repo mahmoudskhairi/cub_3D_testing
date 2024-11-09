@@ -7,8 +7,8 @@ NAME = graphic
 
 all : $(NAME)
 
-$(NAME) : graphic.c
-	$(CC) $(CFLAGS) $(MLX_FLAGS) graphic.c  -o $(NAME)
+$(NAME) : palestine.c
+	$(CC) $(CFLAGS) $(MLX_FLAGS) palestine.c  -o $(NAME)
 %.o:%c
 	$(CC) -c $(CFLAGS) -Imlx $< -o $@
 
