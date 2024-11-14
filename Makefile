@@ -1,28 +1,59 @@
-CC= cc
-CFLAGS= -Wall -Wextra -Werror
-RM = rm -rf
-MLX_FLAGS = ../MLX42/build/libmlx42.a ../MLX42/build/libglfw3.a -Iinclude -lm -framework Cocoa -framework OpenGL -framework IOKit
-NAME = graphic
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/10/01 15:54:37 by rmarzouk          #+#    #+#              #
+#    Updated: 2024/11/13 13:33:52 by mskhairi         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror  -fsanitize=address
+MLX_FALGS=MLX42/build/libmlx42.a MLX42/build/libglfw3.a
+LIBS = -framework Cocoa -framework OpenGL -framework IOKit
+LIBFT_FLAGS = -L src/libft -lft
 
-all : $(NAME)
+NAME = cub3D
 
-$(NAME) : palestine.c
-	$(CC) $(CFLAGS) $(MLX_FLAGS) palestine.c  -o $(NAME)
-%.o:%c
-	$(CC) -c $(CFLAGS) -Imlx $< -o $@
+PARSING_DIR = parsing/
+S_PARSING= $(addprefix $(PARSING_DIR), ft_requirements.c\
+									ft_textures.c\
+									ft_colors.c\
+									ft_map.c\
+									ft_map_utils.c\
+								)
 
-# clean:
-# 	@echo "make clean..."
-# 	@$(MAKE) clean -C ./libft
-# 	@$(MAKE) clean -C ./ft_printf
-# 	@$(MAKE) clean -C ./get_next_line
+O_PARSING = $(S_PARSING:.c=.o)
 
-# fclean:
-# 	@echo "make fclean..."
-# 	@$(MAKE) fclean -C ./libft
-# 	@$(MAKE) fclean -C ./ft_printf
-# 	@$(MAKE) fclean -C ./get_next_line
-# 	@${RM} $(NAME1) $(SO_LONGO) $(UTILSO)
-# 	@${RM} $(NAME2) $(SO_LONGO_BONUS) $(UTILSO_BONUS)
-# re: fclean all
+RAYCASTING_DIR = raycasting/
+S_RAYCASTING= $(addprefix $(RAYCASTING_DIR), ft_init_mlx.c\
+											render_map.c \
+											ft_hooks.c \
+											projection_3D.c \
+											ft_player.c \
+											mini_map.c \
+								)
+
+O_RAYCASTING = $(S_RAYCASTING:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(NAME).o $(O_PARSING) $(O_RAYCASTING)
+	make -C src/libft
+	$(CC) $(CFLAGS) $(MLX_FALGS) $(LIBS) $(LIBFT_FLAGS) $(NAME).o $(O_RAYCASTING) $(O_PARSING) -o $(NAME)
+
+%.o:%.c cube3d.h
+	$(CC) -c $(CFLAGS) $< -o $@
+clean:
+	# make fclean -C src/libft
+	rm -f $(NAME).o 
+	rm -fr $(O_PARSING) $(O_RAYCASTING)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all

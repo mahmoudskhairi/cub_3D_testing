@@ -1,0 +1,14 @@
+# Target labels
+ glfw-populate
+# Source files and their labels
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate.rule
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/CMakeFiles/glfw-populate-complete.rule
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build.rule
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure.rule
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download.rule
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install.rule
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir.rule
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch.rule
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test.rule
+/Users/mskhairi/Desktop/so_long_githube/MLX42/build/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update.rule
