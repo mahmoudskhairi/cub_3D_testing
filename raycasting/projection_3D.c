@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 10:16:43 by rmarzouk          #+#    #+#             */
-/*   Updated: 2024/11/16 15:59:36 by mskhairi         ###   ########.fr       */
+/*   Updated: 2024/11/16 16:45:40 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,18 +171,21 @@ void textures(t_data *data,t_ray *ray, mlx_image_t *img)
 		x_texture = (ray->Wall_hit.y / TILE_SIZE - floor(ray->Wall_hit.y / TILE_SIZE)) * img->width;
 	while(i < ray->bottom)
 	{
-		if (ray->flag == 'h')
-			x_texture = (ray->Wall_hit.x / TILE_SIZE - floor(ray->Wall_hit.x / TILE_SIZE)) * img->width;
-		else if (ray->flag == 'v')
-			x_texture = (ray->Wall_hit.y / TILE_SIZE - floor(ray->Wall_hit.y / TILE_SIZE)) * img->width;
+		// if (ray->flag == 'h')
+		// 	x_texture = (ray->Wall_hit.x / TILE_SIZE - floor(ray->Wall_hit.x / TILE_SIZE)) * img->width;
+		// else if (ray->flag == 'v')
+		// 	x_texture = (ray->Wall_hit.y / TILE_SIZE - floor(ray->Wall_hit.y / TILE_SIZE)) * img->width;
 		// color = 0;
 		y_texture = (i - ray->top) / (ray->bottom - ray->top) * (double)data->img1->height;
 		// printf("x-->%d\n", x_texture);
 		// printf("y-->%f\n", y_texture);
 		if (i >= 0 && i < HEIGHT)
 		{
-			color = gett_rgba(&img->pixels[(int)y_texture * img->width + x_texture * 4]);
-			mlx_put_pixel(data->ft_3D, data->x_projection , i, color);
+			if ((int)y_texture * img->width + x_texture < img->height * img->width)
+			{
+				color = gett_rgba(&img->pixels[((int)y_texture * img->width + x_texture) * 4]);
+				mlx_put_pixel(data->ft_3D, data->x_projection , i, color);
+			}
 			// mlx_put_pixel(data->ft_3D,data->x_projection , i, get_rgba(255,255,255,255));
 		}
 		i++;
@@ -195,17 +198,29 @@ void	draw_columns(t_data *data, t_ray *ray, double angle)
 	double	projection_distance;
 	ray->distance *= cos(data->player.angle - angle);
 	projection_distance = WIDTH / 2 * tan(FOV / 2);                                                                                     
-	projection_column = (TILE_SIZE * projection_distance) / ray->distance;
+	projection_column = ((TILE_SIZE * projection_distance) / ray->distance) * 2;
 	ray->top = (HEIGHT / 2) - (projection_column / 2);
 	ray->bottom = (HEIGHT / 2) + (projection_column / 2);
-	if ((sin(angle) <= 0 && ray->flag == 'h'))//----->buttom
+	if ((sin(angle) <= 0 && ray->flag == 'h'))//----->top
+	{
 		textures(data, ray, data->img1);
-	if ((sin(angle) >= 0 && ray->flag == 'h'))//top
+		// printf("img1\n");
+	}
+	if ((sin(angle) >= 0 && ray->flag == 'h'))//buttom
+	{
 		textures(data, ray, data->img2);
+		// printf("img2\n");
+	}
 	if ((cos(angle) >= 0 && ray->flag == 'v'))// ----->right
+	{
 		textures(data, ray, data->img3);
+		// printf("img3\n");
+	}
 	if (cos(angle) <= 0  && ray->flag == 'v')// ----->left
+	{
 		textures(data, ray, data->img4);
+		// printf("img4\n");
+	}
 }
 
 void	projection_3D(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:54:40 by rmarzouk          #+#    #+#             */
-/*   Updated: 2024/11/16 15:59:06 by mskhairi         ###   ########.fr       */
+/*   Updated: 2024/11/16 16:38:07 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 #define RAD M_PI / 180 // one radian
 #define DEGREE 5 * M_PI / 180
-#define	SPEED 3
+#define	SPEED 2
 // #define RES 
 
 #define N_RAYS 1600

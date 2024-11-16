@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:34:44 by rmarzouk          #+#    #+#             */
-/*   Updated: 2024/11/10 14:46:14 by mskhairi         ###   ########.fr       */
+/*   Updated: 2024/11/16 16:44:37 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	cast_rays(t_data *data)
 		while (j < WIDTH)
 		{
 			if (i < HEIGHT / 2)
-				mlx_put_pixel(data->ft_3D, j, i, get_rgba(196, 215, 255, 255));
+				mlx_put_pixel(data->ft_3D, j, i, get_rgba(110, 110, 110, 255));
 			else
 				mlx_put_pixel(data->ft_3D, j, i, get_rgba(73, 54, 40 , 255));
 			j++;
