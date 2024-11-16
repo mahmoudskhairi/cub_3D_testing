@@ -6,7 +6,7 @@
 /*   By: mskhairi <mskhairi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:54:40 by rmarzouk          #+#    #+#             */
-/*   Updated: 2024/11/14 18:22:50 by mskhairi         ###   ########.fr       */
+/*   Updated: 2024/11/16 15:59:06 by mskhairi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ typedef struct s_texture
 
 typedef	struct s_ray
 {
-	t_coor		Wall_hit;
+	t_coor		 Wall_hit;
 	double		distance;
-	int top;
-	int bottom;
+	double top;
+	double bottom;
 	int flag;
 }	t_ray;
 
@@ -116,7 +116,7 @@ typedef struct s_data
 	mlx_t		*mlx;// mlx variable
 	mlx_image_t	*ft_3D;// image of 3d vue
 	t_ray		*rays;
-	int  x_projection;
+	double  x_projection;
 	mlx_texture_t *texture_img1;
 	mlx_texture_t *texture_img2;
 	mlx_texture_t *texture_img3;
